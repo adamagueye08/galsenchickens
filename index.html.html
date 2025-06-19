@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complexe Padix - Restaurant & Terrain de Foot</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+               :root {
+            --primary: #000000;
+            --secondary: #a50909;
+            --light: #b61111;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+            background-color: #fff8f8;
+            margin: 0;
+            color: #3a3a3a;
+        }
+        .btn {
+            transition: all 0.3s ease-in-out;
+        }
+        .btn:hover {
+            transform: scale(1.05);
+            opacity: 0.9;
+        }
+        .navbar-dark .navbar-nav .nav-link {
+            color: var(--secondary);
+            transition: color 0.3s ease;
+        }
+        .navbar-dark .navbar-nav .nav-link:hover,
+        .navbar-dark .navbar-nav .nav-link.active {
+            color: #710505;
+        }
+        .btn-danger {
+            background-color: var(--secondary);
+            border: none;
+            color: black;
+        }
+        .btn-danger:hover {
+            background-color: #d41f1f;
+        }
+        .hero-section {
+    background: linear-gradient(rgba(165, 25, 25, 0.7), rgba(165, 25, 25, 0.7)), 
+                url('WhatsApp Image 2025-06-17 at 17.09.58_31e990ec.jpg') no-repeat center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: #a51919;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+}
+        .hero-section h1 {
+            font-weight: 900;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
+        }
+        .hero-section p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 8px rgba(0,0,0,0.6);
+        }
+        .products-section {
+            padding: 3rem 1rem 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .products-section h2 {
+            color: var(--secondary);
+            margin-bottom: 2rem;
+            text-align: center;
+            font-weight: 800;
+            font-size: 2.75rem;
+            position: relative;
+        }
+        .products-section h2::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: var(--secondary);
+            margin: 1rem auto 0;
+            border-radius: 2px;
+        }
+        .product-card {
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 24px rgba(165,25,25,0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            background-color: #fff;
+            border: 1px solid #f1f1f1;
+        }
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(165,25,25,0.3);
+        }
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+        .product-card-body {
+            padding: 1.5rem;
+            text-align: center;
+        }
+        .product-card h3 {
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 0.75rem;
+        }
+        .product-card p {
+            color: #555;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            min-height: 48px;
+        }
+        .product-card .price {
+            font-weight: 900;
+            font-size: 1.25rem;
+            color: #d41f1f;
+            margin-bottom: 1rem;
+        }
+        .product-card .btn-buy {
+            background-color: var(--secondary);
+            border: none;
+            color: black;
+            padding: 0.75rem 2rem;
+            font-weight: 700;
+            border-radius: 12px;
+            transition: background-color 0.3s ease;
+        }
+        .product-card .btn-buy:hover {
+            background-color: #d41f1f;
+            color: white;
+        }
+        /* Location Section */
+        
+        #contact iframe {
+    height: 400px; /* Définit une hauteur fixe pour la carte */
+}
+
+        .location-section {
+            background: linear-gradient(135deg, rgba(165,25,25,0.85), rgba(244,90,90,0.85));
+            padding: 3rem 1rem 4rem;
+            color: white;
+            text-align: center;
+        }
+        .location-section h2 {
+            font-weight: 900;
+            font-size: 2.75rem;
+            margin-bottom: 1rem;
+        }
+        .location-section iframe {
+            border: none;
+            border-radius: 16px;
+            width: 90%;
+            max-width: 900px;
+            height: 400px;
+            box-shadow: 0 10px 40px rgba(255 0 0 / 0.4);
+        }
+        /* Footer */
+        footer.footer {
+            background: var(--primary);
+            padding: 2rem 1rem;
+            color: #ccc;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+        footer.footer a {
+            color: var(--secondary);
+            text-decoration: none;
+            margin: 0 8px;
+            font-weight: 600;
+        }
+        footer.footer a:hover {
+            text-decoration: underline;
+        }
+        @media (min-width: 768px) {
+            .product-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 2.5rem;
+            }
+        }
+       
+       
+       
+       
+       
+       :root {
+    --primary: #000000; /* Noir */
+    --secondary: #a50909; /* Jaune vif */
+    --light: #b61111;
+        }
+
+        .btn {
+    transition: all 0.3s ease-in-out;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+}
+
+.card-hover {
+    transition: all 0.4s ease;
+}
+
+.card-hover:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2);
+}
+.navbar-dark .navbar-nav .nav-link {
+    color: #ca0a0a;
+    transition: color 0.3s ease;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link.active {
+    color: rgb(132, 2, 2);
+}
+.btn-yellow {
+    background-color: var(--secondary);
+    color: #000;
+    border: none;
+}
+
+.btn-yellow:hover {
+    background-color: #d4ac0d;
+    color: #250404;
+}
+
+.btn-outline-yellow {
+    border: 2px solid var(--secondary);
+    color: var(--secondary);
+    background-color: transparent;
+}
+
+.btn-outline-yellow:hover {
+    background-color: var(--secondary);
+    color: #710505;
+}
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(123, 2, 2, 0.7), url(''));
+            background-size: cover;
+            background-position: center;
+            min-height: 70vh;
+        }
+        
+        .nav-pills .nav-link.active {
+            background-color: var(--secondary);
+        }
+        
+        .section-title {
+            position: relative;
+            margin-bottom: 40px;
+        }
+        
+        .section-title:after {
+            content: "";
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary);
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(133, 5, 5, 0.975);
+        }
+        /* Styles pour l'élément footer */
+footer {
+    background-color: #860505; /* bg-green-900 */
+    color: #fff; /* text-white */
+    padding-top: 3rem; /* py-12 */
+    padding-bottom: 3rem; /* py-12 */
+    padding-left: 1rem; /* px-4 */
+    padding-right: 1rem; /* px-4 */
+}
+
+/* Styles pour le conteneur principal à l'intérieur du footer */
+footer .container {
+    width: 100%;
+    max-width: 1140px; /* Exemple de max-width pour un conteneur Bootstrap/Tailwind typique */
+    margin-left: auto; /* mx-auto */
+    margin-right: auto; /* mx-auto */
+}
+
+/* Styles pour la grille des colonnes */
+footer .grid {
+    display: grid; /* grid */
+    grid-template-columns: repeat(1, minmax(0, 1fr)); /* grid-cols-1 */
+    gap: 2rem; /* gap-8 */
+    margin-bottom: 2rem; /* mb-8 */
+}
+
+/* Styles pour la grille sur les écrans moyens et plus grands */
+@media (min-width: 768px) { /* md breakpoint */
+    footer .grid.md\:grid-cols-4 { /* Cible la div avec la classe md:grid-cols-4 */
+        grid-template-columns: repeat(4, minmax(0, 1fr)); /* md:grid-cols-4 */
+    }
+}
+
+
+/* Styles pour les titres h3 dans le footer */
+footer h3 {
+    font-size: 1.25rem; /* text-xl */
+    font-weight: 700; /* font-bold */
+    margin-bottom: 1rem; /* mb-4 */
+}
+
+/* Styles pour la liste des liens rapides */
+footer ul.space-y-2 > li + li { /* space-y-2 */
+    margin-top: 0.5rem;
+}
+
+/* Styles pour les liens dans le footer */
+footer a {
+    color: inherit; /* Par défaut, hérite de text-white */
+    text-decoration: none;
+    transition: color 0.3s ease; /* transition */
+}
+
+/* Styles pour les liens au survol */
+footer a:hover {
+    color: #ffffff; /* hover:text-yellow-300 */
+}
+
+/* Styles pour le div du copyright */
+footer .pt-8 { /* Cible le div avec pt-8 */
+    padding-top: 2rem; /* pt-8 */
+}
+
+footer .border-t { /* Cible le div avec border-t */
+    border-top-width: 1px; /* border-t */
+    border-top-style: solid; /* border-t */
+    border-top-color: #0e0404; /* border-green-800 */
+}
+
+footer .text-center { /* Cible le div avec text-center */
+    text-align: center; /* text-center */
+}
+
+
+        .footer {
+            background-color: var(--primary);
+        }
+
+        footer .grid.md\\:grid-cols-4 {
+                grid-template-columns: 1fr !important;
+            }
+        
+
+
+        
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                
+                <span class="fw-algeriant"> 🐔 Galsen Chicken</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#accueil">Accueil</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#produit">Nos Poulets</a>
+                    </li>
+                
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="btn btn-danger ms-lg-3 text-white" href="https://wa.me/771609423">Commander</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="accueil" class="hero-section d-flex flex-column justify-content-center align-items-center">
+        <div class="container">
+            <h1>🐔 Galsen Chicken</h1>
+            <p>Poulets crus premium pour une cuisine raffinée</p>
+            <a href="#produit" class="btn btn-danger btn-lg mt-3 px-5">Voir nos poulets</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <!-- Products Section -->
+    <section id="produit" class="products-section">
+        <h2>Nos Poulets en Vente</h2>
+
+        <div class="product-grid">
+            <div class="product-card">
+                <img src="WhatsApp Image 2025-06-17 at 17.09.58_31e990ec.jpg" alt="Poulet fermier élevé en plein air" loading="lazy" />
+                <div class="product-card-body">
+                    <h3>Poulet de Chair 1kg</h3>
+                    <p>Poulet fermier savoureux, élevé dans les meilleures conditions pour une qualité optimale.</p>
+                    <div class="price">2 900 CFA</div>
+                     <a class="btn btn-danger px-4 rounded" href="https://wa.me/773907639" target="_blank" rel="noopener">Commander</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="WhatsApp Image 2025-06-17 at 17.09.58_31e990ec.jpg" alt="Poulet de chair dodu prêt à la vente" loading="lazy" />
+                <div class="product-card-body">
+                    <h3>Poulet de Chair 1,1kg</h3>
+                    <p>Poulet de chair tendre et juteux, idéal pour toutes vos recettes préférées.</p>
+                    <div class="price">3 100 CFA</div>
+                    <a class="btn btn-danger px-4 rounded" href="https://wa.me/773907639" target="_blank" rel="noopener">Commander</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="WhatsApp Image 2025-06-17 at 17.09.58_31e990ec.jpg" alt="Poulet biologique élevé sans pesticides" loading="lazy" />
+                <div class="product-card-body">
+                    <h3>Poulet de Chair 1,2kg</h3>
+                    <p>Poulet biologique élevé sans pesticides, respectueux de l’environnement et sain.</p>
+                    <div class="price">3 300 CFA</div>
+                    <a class="btn btn-danger px-4 rounded" href="https://wa.me/773907639" target="_blank" rel="noopener">Commander</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="WhatsApp Image 2025-06-17 at 17.09.59_18ae1de9.jpg" alt="Poulet de chair dodu prêt à la vente" loading="lazy" />
+                <div class="product-card-body">
+                    <h3>Poulet de Chair 1,3kg</h3>
+                    <p>Poulet de chair tendre et juteux, idéal pour toutes vos recettes préférées.</p>
+                    <div class="price">3 500 CFA</div>
+                    <a class="btn btn-danger px-4 rounded" href="https://wa.me/773907639" target="_blank" rel="noopener">Commander</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="WhatsApp Image 2025-06-17 at 17.09.58_31e990ec.jpg" alt="Poulet de chair dodu prêt à la vente" loading="lazy" />
+                <div class="product-card-body">
+                    <h3>Poulet de Chair 1,4kg</h3>
+                    <p>Poulet de chair tendre et juteux, idéal pour toutes vos recettes préférées.</p>
+                    <div class="price">3 600 CFA</div>
+                    <a class="btn btn-danger px-4 rounded" href="https://wa.me/773907639" target="_blank" rel="noopener">Commander</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="WhatsApp Image 2025-06-17 at 17.10.00_2257587b.jpg" alt="Poulet de chair dodu prêt à la vente" loading="lazy" />
+                <div class="product-card-body">
+                    <h3>Poulet de Chair 1,5kg</h3>
+                    <p>Poulet de chair tendre et juteux, idéal pour toutes vos recettes préférées.</p>
+                    <div class="price">3 700 CFA</div>
+                    <a class="btn btn-danger px-4 rounded" href="https://wa.me/773907639" target="_blank" rel="noopener">Commander</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="WhatsApp Image 2025-06-17 at 17.09.58_31e990ec.jpg" alt="Poulet de chair dodu prêt à la vente" loading="lazy" />
+                <div class="product-card-body">
+                    <h3>Poulet de Chair 1,6kg</h3>
+                    <p>Poulet de chair tendre et juteux, idéal pour toutes vos recettes préférées.</p>
+                    <div class="price">3 800 CFA</div>
+                    <a class="btn btn-danger px-4 rounded" href="https://wa.me/773907639" target="_blank" rel="noopener">Commander</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="WhatsApp Image 2025-06-17 at 17.09.59_7d60b907.jpg" alt="Poulet de chair dodu prêt à la vente" loading="lazy" />
+                <div class="product-card-body">
+                    <h3>Poulet de Chair 1,7kg</h3>
+                    <p>Poulet de chair tendre et juteux, idéal pour toutes vos recettes préférées.</p>
+                    <div class="price">4 000 CFA</div>
+                    <a class="btn btn-danger px-4 rounded" href="https://wa.me/773907639" target="_blank" rel="noopener">Commander</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="WhatsApp Image 2025-06-17 at 17.09.58_31e990ec.jpg" alt="Poulet de chair dodu prêt à la vente" loading="lazy" />
+                <div class="product-card-body">
+                    <h3>Poulet de Chair 1,8kg</h3>
+                    <p>Poulet de chair tendre et juteux, idéal pour toutes vos recettes préférées.</p>
+                    <div class="price">4 100 CFA</div>
+                    <a class="btn btn-danger px-4 rounded" href="https://wa.me/773907639" target="_blank" rel="noopener">Commander</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="WhatsApp Image 2025-06-17 at 17.09.58_31e990ec.jpg" alt="Poulet de chair dodu prêt à la vente" loading="lazy" />
+                <div class="product-card-body">
+                    <h3>Poulet de Chair 1,9kg</h3>
+                    <p>Poulet de chair tendre et juteux, idéal pour toutes vos recettes préférées.</p>
+                    <div class="price">4 300 CFA</div>
+                    <a class="btn btn-danger px-4 rounded" href="https://wa.me/773907639" target="_blank" rel="noopener">Commander</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="WhatsApp Image 2025-06-17 at 17.09.58_31e990ec.jpg" alt="Poulet de chair dodu prêt à la vente" loading="lazy" />
+                <div class="product-card-body">
+                    <h3>Poulet de Chair 2kg</h3>
+                    <p>Poulet de chair tendre et juteux, idéal pour toutes vos recettes préférées.</p>
+                    <div class="price">4 400 CFA</div>
+                    <a class="btn btn-danger px-4 rounded" href="https://wa.me/773907639" target="_blank" rel="noopener">Commander</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="WhatsApp Image 2025-06-17 at 17.09.58_31e990ec.jpg" alt="Poulet de chair dodu prêt à la vente" loading="lazy" />
+                <div class="product-card-body">
+                    <h3>Poulet de Chair 2,1kg</h3>
+                    <p>Poulet de chair tendre et juteux, idéal pour toutes vos recettes préférées.</p>
+                    <div class="price">4 500 CFA</div>
+                    <a class="btn btn-danger px-4 rounded" href="https://wa.me/773907639" target="_blank" rel="noopener">Commander</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="WhatsApp Image 2025-06-17 at 17.09.58_31e990ec.jpg" alt="Poulet de chair dodu prêt à la vente" loading="lazy" />
+                <div class="product-card-body">
+                    <h3>Poulet de Chair 2,2kg</h3>
+                    <p>Poulet de chair tendre et juteux, idéal pour toutes vos recettes préférées.</p>
+                    <div class="price">4 700 CFA</div>
+                    <a class="btn btn-danger px-4 rounded" href="https://wa.me/773907639" target="_blank" rel="noopener">Commander</a>
+                </div>
+            </div>
+            <div class="product-card">
+                <img src="WhatsApp Image 2025-06-17 at 17.09.58_31e990ec.jpg" alt="Poulet de chair dodu prêt à la vente" loading="lazy" />
+                <div class="product-card-body">
+                    <h3>Poulet de Chair 2,3kg</h3>
+                    <p>Poulet de chair tendre et juteux, idéal pour toutes vos recettes préférées.</p>
+                    <div class="price">4 900 CFA</div>
+                    <a class="btn btn-danger px-4 rounded" href="https://wa.me/773907639" target="_blank" rel="noopener">Commander</a>
+                </div>
+            </div>
+        </div>
+        
+    </section>
+  
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-5 bg-light">
+        <div class="container py-5">
+            <h2 class="section-title text-center">Contactez-nous on livre partout au Senegal  </h2>
+            <p class="text-center mb-5">Pour toute information</p>
+            
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5 class="card-title mb-4">Informations de contact</h5>
+                            
+                            <div class="mb-4">
+                                <h6><i class="fas fa-map-marker-alt text-danger me-2"></i> Adresse</h6>
+                                <p>Kaolack Medina baye</p>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <h6><i class="fas fa-phone-alt text-danger me-2"></i> Téléphone</h6>
+                                <p>773907639</p>
+                            </div>
+                            
+                            <div class="mb-4">
+                                <h6><i class="fas fa-envelope text-danger me-2"></i> Email</h6>
+                                <p>Secki3907639@gmail.com</p>
+                            </div>
+                            
+                                                    
+                            <div class="mt-4">
+                                <h6>Contactez-nous</h6>
+                                <div class="d-flex gap-3">
+                                    <a href="#773907639" class="text-dark" aria-label="Contactez-nous sur whatsapp"><i class="fab fa-whatsapp fa-lg"></i></a>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="card">
+                        <div class="card-body">
+                            
+                            <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1555147.977707581!2d-18.61605990064382!3d14.715552894656033!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xee997946f73b3ad%3A0xd6d9c858fbd1a253!2sMadina%20Baye%20NIASS!5e1!3m2!1sfr!2ssn!4v1750261714570!5m2!1sfr!2ssn"
+                            width="100%"
+                            height="100%"
+                            style="border: 0"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"
+                            aria-label="Location map"
+                        ></iframe>
+                        
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-green-900 text-white py-12 px-4">
+        <div class="container mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Padix</h3>
+                    <p>
+                        Notre plateforme est dédiée à la vente de poulets frais et de qualité.
+                         Nous nous engageons à proposer des produits d'origine contrôlée, élevés et nous livrons partous au Senegal dans le respect des normes sanitaires.
+                          Notre objectif est de rendre l'achat de poulet simple, fiable et accessible à tous, avec une touche premium et un service client attentif à vos besoins.
+                    </p>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Liens rapides</h3>
+                    <ul class="space-y-2">
+                        <li>
+                            <a
+                                href="#accueil"
+                                class="hover:text-yellow-300 transition"
+                                >Accueil</a
+                            >
+                        </li>
+                        
+                       
+                        <li>
+                            <a
+                                href="#produit"
+                                class="hover:text-yellow-300 transition"
+                                >Nos Poulets</a
+                            >
+                        </li>
+                        <li>
+                            <a
+                                href="#contact"
+                                class="hover:text-yellow-300 transition"
+                                >Contact</a
+                            >
+                        </li>
+                    </ul>
+                   
+                
+                </div>
+                <div
+                class="pt-8 border-t border-green-800 text-center">
+                <p>&copy; 2025 Galsen Chicken. Tous droits réservés.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Gallery modal functionality
+        document.querySelectorAll('[data-bs-toggle="modal"]').forEach(item => {
+            item.addEventListener('click', event => {
+                const imgSrc = event.currentTarget.querySelector('img').src;
+                document.getElementById('modalImage').src = imgSrc;
+            });
+        });
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
